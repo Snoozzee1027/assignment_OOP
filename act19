@@ -1,0 +1,32 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> attendees = new List<string>();
+
+        Console.WriteLine("Enter student names (type 'end' to finish):");
+
+        while (true)
+        {
+            string name = Console.ReadLine();
+
+            if (name.ToLower() == "end")
+                break;
+
+            // Add only if not already in list
+            if (!attendees.Contains(name))
+                attendees.Add(name);
+        }
+
+        attendees.Sort(); // Alphabetical order
+
+        Console.WriteLine("\nTotal unique attendees: " + attendees.Count);
+        Console.WriteLine("List of attendees:");
+        foreach (string student in attendees)
+        {
+            Console.WriteLine(student);
+        }
+    }
+}
